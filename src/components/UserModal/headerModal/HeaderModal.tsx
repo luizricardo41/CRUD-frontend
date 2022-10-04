@@ -7,10 +7,10 @@ import { UsersInfo } from '../../../context/UserContext';
 import { IUserData, IUserDataProps } from '../../../interfaces/IUserData';
 
 export default function HeaderModal({ userData }: IUserDataProps) {
-  const { setUserModal, setOpenEdit } = useContext(UsersInfo);
+  const { setUserModal, setOpenEdit, setUserData } = useContext(UsersInfo);
 
   const handleEdit = (userData: IUserData) => {
-    console.log(userData);
+    setUserData(userData)
     setOpenEdit(true);
     setUserModal(false);
   }

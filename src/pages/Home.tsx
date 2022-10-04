@@ -9,8 +9,6 @@ import { UsersInfo } from '../context/UserContext';
 export default function Home() {
   const { editUser } = useContext(UsersInfo);
 
-  console.log(editUser);
-
   return (
     <Container>
 

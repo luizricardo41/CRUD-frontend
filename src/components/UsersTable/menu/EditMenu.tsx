@@ -1,12 +1,12 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
-import { UsersInfo } from '../../../context/UserContext';
 import { PencilFill, Trash } from 'react-bootstrap-icons';
 
+import { UsersInfo } from '../../../context/UserContext';
 import { IUserData } from '../../../interfaces/IUserData';
+
 
 export default function EditMenu() {
   const { editUser, setEditUser, anchorEl, setOpenEdit, userData } = useContext(UsersInfo);
