@@ -8,8 +8,15 @@ export interface IUserData {
   cpf: string;
   telefone: string;
   dataNascimento: string;
+  password: string;
+  endereco: string;
+  cidade: string;
 }
 
 export interface IUserDataProps {
   userData: IUserData;
+}
+
+export interface IIndexProps {
+  index: IUserData;
 }
