@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -8,6 +8,8 @@ import { X } from 'react-bootstrap-icons';
 import { UsersInfo } from '../../context/UserContext';
 import EditTabs from './tabs/EditTabs';
 import { Button } from 'react-bootstrap';
+
+import apiAxios from '../../api/apiUsers';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -28,16 +30,29 @@ export default function EditModal() {
     setOpenEdit,
     userData,
     passwordConfirm,
+    setRows,
   } = useContext(UsersInfo);
 
-   const handleClose = () => setOpenEdit(false);
+  useEffect(() => {
+    apiAxios.get('').then(response => setRows(response.data));
+  }, [openEdit]);
+
+  const handleClose = () => setOpenEdit(false);
 
   const submitUser = () => {
     if (userData.password !== passwordConfirm || !userData.password) {
-      console.log(passwordConfirm);
       alert('O campo "Senha" não pode estar vazio. Os campos "Senha" e "Confirme a senha" precisam ser iguais!')
+    } else if (!userData.id) {
+      apiAxios.post('', userData)
+        .then()
+        .catch((err) => console.log(err));
+        setOpenEdit(false);
+    } else {
+      apiAxios.put(`/${userData.id}`, userData)
+        .then()
+        .catch((err) => console.log(err));
+        setOpenEdit(false);
     }
-    console.log(userData);
   }
 
   return (
@@ -70,6 +85,7 @@ export default function EditModal() {
           >
             <Button
               className="me-4"
+              onClick={handleClose}
             >
               Voltar
             </Button>
