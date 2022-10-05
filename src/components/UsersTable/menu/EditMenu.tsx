@@ -17,7 +17,6 @@ export default function EditMenu() {
     setOpenEdit,
     userData,
     setRows,
-    rows,
     setEditPassword,
     setPasswordConfirm,
   } = useContext(UsersInfo);
@@ -36,7 +35,7 @@ export default function EditMenu() {
 
   useEffect(() => {
     apiAxios.get('').then(response => setRows(response.data));
-  }, []);  
+  }, [editUser]);  
 
   return (
       <Menu
