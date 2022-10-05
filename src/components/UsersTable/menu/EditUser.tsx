@@ -1,10 +1,14 @@
-import { FormControlLabel, IconButton } from "@mui/material"
 import { useContext } from "react"
+
+import { FormControlLabel, IconButton } from "@mui/material"
 import { PencilFill } from "react-bootstrap-icons"
+
 import { UsersInfo } from "../../../context/UserContext"
+import { IIndexProps } from "../../../interfaces/IUserData";
 import EditMenu from "./EditMenu";
 
-export default function EditUser({ index }) {
+
+export default function EditUser({ index }: IIndexProps) {
   const { handleClickEditUser } = useContext(UsersInfo);
 
   return (

@@ -1,16 +1,11 @@
-import { useContext } from 'react';
 import { Container } from 'react-bootstrap';
+
 import EditModal from '../components/EditModal/EditModal';
 import SearchUser from '../components/Search/SearchUser';
 import UserModal from '../components/UserModal/UserModal';
 import TableUsers from '../components/UsersTable/UsersTable';
-import { UsersInfo } from '../context/UserContext';
 
 export default function Home() {
-  const { editUser } = useContext(UsersInfo);
-
-  console.log(editUser);
-
   return (
     <Container>
 
