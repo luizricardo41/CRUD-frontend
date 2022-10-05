@@ -31,4 +31,4 @@ Para efetuar o teste localmente, é necessário seguir os passos:
 
 ## Testar o funcionamento:
 
-É possivel efetuar o teste manual da aplicação efetuando o clone da aplicação backend, que pode ser encontrada neste [repositório](https://github.com/luizricardo41/CRUD-backend). Siga as orientações presentes no README e rode ambas as aplicações para testar seu funcionamento.
+É possivel efetuar o teste manual da aplicação efetuando o clone da aplicação backend, que pode ser encontrada neste [repositório](https://github.com/luizricardo41/CRUD-backend). Siga as orientações presentes no README e inicie ambas as aplicações para testar seu funcionamento.
