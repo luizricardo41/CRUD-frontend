@@ -16,7 +16,7 @@ export default function EditTabs() {
   const [value, setValue] = useState('1');
   const [visiblePassword, setVisiblePassword] = useState(false);
 
-  const { userData, setPasswordConfirm, setUserData } = useContext(UsersInfo);
+  const { userData, setPasswordConfirm, setUserData, editPassword } = useContext(UsersInfo);
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -87,8 +87,10 @@ export default function EditTabs() {
               <OutlinedInput
                 id="password"
                 name="password"
+                disabled={editPassword}
                 onChange={(event) => handleChangeForm(event)}
                 type={visiblePassword ? 'text' : 'password'}
+                defaultValue={userData.password}
                 required
                 endAdornment={
                   <InputAdornment position="end">
@@ -113,9 +115,11 @@ export default function EditTabs() {
               <OutlinedInput
                 id="confirm-password"
                 name="passwordConfirm"
+                disabled={editPassword}
                 onChange={(event) => setPasswordConfirm(event.target.value)}
                 type={visiblePassword ? 'text' : 'password'}
                 required
+                defaultValue={userData.password}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -137,20 +141,35 @@ export default function EditTabs() {
           <TextField
             className="mb-4"
             label="Endereço"
+            onChange={(event) => handleChangeForm(event)}
+            name="endereco"
             fullWidth
             defaultValue={userData.endereco}
           ></TextField>
 
           <TextField
             className="mb-4 mt-3"
+            onChange={(event) => handleChangeForm(event)}
+            name="cidade"
             label="Cidade"
             fullWidth
             defaultValue={userData.cidade}
           ></TextField>
 
           <TextField
+            className="mb-4"
+            label="Telefone"
+            onChange={(event) => handleChangeForm(event)}
+            name="telefone"
+            fullWidth
+            defaultValue={userData.telefone}
+          ></TextField>
+
+          <TextField
             className="mb-4 mt-3"
+            onChange={(event) => handleChangeForm(event)}
             label="CPF"
+            name="cpf"
             required
             fullWidth
             defaultValue={userData.cpf}
